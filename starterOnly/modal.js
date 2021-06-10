@@ -51,7 +51,7 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// Function validation elements form
+// Function validation inputs form
 
 function validate(event) {
   event.preventDefault();
@@ -90,7 +90,29 @@ function validate(event) {
   } else {
     quantityParent.removeAttribute("data-error-visible");
   }
-  ///////////////////////////////////////
+
+  let hasChecked = false;
+  // forEach for all checked buttons city
+  city.forEach((event) => {
+    if (event.checked) {
+      hasChecked = true;
+    }
+  });
+  if (!hasChecked) {
+    cityParent.setAttribute("data-error-visible", true);
+    isFormValid = false;
+  } else {
+    cityParent.removeAttribute("data-error-visible");
+  }
+
+  // Terms of use
+  if (!termOfUse.checked) {
+    termOfUseParent.setAttribute("data-error-visible", true);
+    isFormValid = false;
+  } else {
+    termOfUseParent.removeAttribute("data-error-visible");
+  }
+
   if (!isFormValid) {
     return false;
   }
