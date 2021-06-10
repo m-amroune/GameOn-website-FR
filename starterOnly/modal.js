@@ -22,7 +22,7 @@ const quantity = document.getElementById("quantity");
 const city = document.querySelectorAll("input[type=radio]");
 const termOfUse = document.getElementById("checkbox1");
 
-// Parents Elements
+// Parents Elements for errors
 
 const firstNameParent = firstName.parentNode;
 const lastNameParent = lastName.parentNode;
@@ -31,6 +31,9 @@ const birthdateParent = birthdate.parentNode;
 const quantityParent = quantity.parentNode;
 const cityParent = city[0].parentNode;
 const termOfUseParent = termOfUse.parentNode;
+
+// REGEX
+const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -53,13 +56,41 @@ function closeModal() {
 function validate(event) {
   event.preventDefault();
   let isFormValid = true;
-  if (firstName.value.length < 2) {
+  if (firstName.value.length < 2 || !firstName.value.match(regex)) {
     firstNameParent.setAttribute("data-error-visible", true);
     isFormValid = false;
   } else {
     firstNameParent.removeAttribute("data-error-visible");
   }
 
+  if (lastName.value.length < 2 || !lastName.value.match(regex)) {
+    lastNameParent.setAttribute("data-error-visible", true);
+    isFormValid = false;
+  } else {
+    lastNameParent.removeAttribute("data-error-visible");
+  }
+
+  if (!email.value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
+    emailParent.setAttribute("data-error-visible", true);
+    isFormValid = false;
+  } else {
+    emailParent.removeAttribute("data-error-visible", true);
+  }
+
+  if (birthdate.value == null || birthdate.value == "") {
+    birthdateParent.setAttribute("data-error-visible", true);
+    isFormValid = false;
+  } else {
+    birthdateParent.removeAttribute("data-error-visible");
+  }
+
+  if (quantity.value == null || quantity.value == "") {
+    quantityParent.setAttribute("data-error-visible", true);
+    isFormValid = false;
+  } else {
+    quantityParent.removeAttribute("data-error-visible");
+  }
+  ///////////////////////////////////////
   if (!isFormValid) {
     return false;
   }
