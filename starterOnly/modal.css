@@ -171,6 +171,22 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
+.confirm-success {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
+.confirm-message {
+  text-align: center;
+}
+
 .content {
   margin: 5% auto;
   width: 100%;
@@ -456,6 +472,13 @@ input[data-error]::after {
   margin: 0;
   margin-top: 59px;
 }
+
+/* ADD display none for div confirm-form   */
+
+#confirm-form {
+  display: none;
+}
+
 .hero-img {
   grid-column: span 8;
 }

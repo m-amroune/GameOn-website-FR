@@ -21,6 +21,8 @@ const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const city = document.querySelectorAll("input[type=radio]");
 const termOfUse = document.getElementById("checkbox1");
+const confirmSuccess = document.querySelector(".confirm-success");
+const closeSuccess = document.querySelector(".close-confirmation");
 
 // Parents Elements for errors
 
@@ -116,4 +118,17 @@ function validate(event) {
   if (!isFormValid) {
     return false;
   }
+
+  confirmSuccess.style.display = "flex";
+  firstName.value = "";
+  lastName.value = "";
+  email.value = "";
+  birthdate.value = "";
+  quantity.value = "";
+
+  city.forEach((event) => {
+    event.checked = false;
+  });
+
+  return false;
 }
