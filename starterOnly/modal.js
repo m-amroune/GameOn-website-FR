@@ -22,7 +22,7 @@ const quantity = document.getElementById("quantity");
 const city = document.querySelectorAll("input[type=radio]");
 const termOfUse = document.getElementById("checkbox1");
 const confirmSuccess = document.querySelector(".confirm-success");
-const closeSuccess = document.querySelector(".close-confirmation");
+const closeSuccess = document.querySelector(".close-message-confirmation");
 
 // Parents Elements for errors
 
@@ -35,7 +35,10 @@ const cityParent = city[0].parentNode;
 const termOfUseParent = termOfUse.parentNode;
 
 // REGEX
-const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
+const regexName = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
+const regexEmail = /^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i;
+const regexBirthdate =
+  /^(19|20)\d{2}[-](0?[1-9]|1[012])[-](0[1-9]|[12]\d|3[01])$/;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -46,40 +49,47 @@ function launchModal() {
 }
 
 // Close modal event
-closeBtn.addEventListener("click", closeModal);
+closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
 
 // Close modal form
 function closeModal() {
   modalbg.style.display = "none";
 }
 
+// Close event confirmation message
+
+closeSuccess.addEventListener("click", closeMessageSuccess);
+
+// Close confirmation message
+function closeMessageSuccess() {}
+
 // Function validation inputs form
 
 function validate(event) {
   event.preventDefault();
   let isFormValid = true;
-  if (firstName.value.length < 2 || !firstName.value.match(regex)) {
+  if (firstName.value.length < 2 || !firstName.value.match(regexName)) {
     firstNameParent.setAttribute("data-error-visible", true);
     isFormValid = false;
   } else {
     firstNameParent.removeAttribute("data-error-visible");
   }
 
-  if (lastName.value.length < 2 || !lastName.value.match(regex)) {
+  if (lastName.value.length < 2 || !lastName.value.match(regexName)) {
     lastNameParent.setAttribute("data-error-visible", true);
     isFormValid = false;
   } else {
     lastNameParent.removeAttribute("data-error-visible");
   }
 
-  if (!email.value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
+  if (!email.value.match(regexEmail)) {
     emailParent.setAttribute("data-error-visible", true);
     isFormValid = false;
   } else {
     emailParent.removeAttribute("data-error-visible", true);
   }
 
-  if (birthdate.value == null || birthdate.value == "") {
+  if (!birthdate.value.match(regexBirthdate)) {
     birthdateParent.setAttribute("data-error-visible", true);
     isFormValid = false;
   } else {
@@ -119,6 +129,7 @@ function validate(event) {
     return false;
   }
 
+  // confirmation message
   confirmSuccess.style.display = "flex";
   firstName.value = "";
   lastName.value = "";
