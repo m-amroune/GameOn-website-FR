@@ -11,7 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeBtn = document.querySelector(".close");
+const closeBtn = document.querySelectorAll(".close");
 
 // FORM Elements
 const firstName = document.getElementById("first");
@@ -22,7 +22,7 @@ const quantity = document.getElementById("quantity");
 const city = document.querySelectorAll("input[type=radio]");
 const termOfUse = document.getElementById("checkbox1");
 const confirmSuccess = document.querySelector(".confirm-success");
-const closeSuccess = document.querySelector(".close-message-confirmation");
+const closeSuccess = document.querySelectorAll(".close-message-confirmation");
 
 // Parents Elements for errors
 
@@ -43,13 +43,13 @@ const regexBirthdate =
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
+// Close modal event
+closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
 }
-
-// Close modal event
-closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
 
 // Close modal form
 function closeModal() {
@@ -58,15 +58,13 @@ function closeModal() {
 
 // Close event confirmation message
 
-closeSuccess.addEventListener("click", closeMessageSuccess);
-
-// Close confirmation message
-function closeMessageSuccess() {}
+closeSuccess.forEach((btn) =>
+  btn.addEventListener("click", closeMessageSuccess)
+);
 
 // Function validation inputs form
 
 function validate(event) {
-  event.preventDefault();
   let isFormValid = true;
   if (firstName.value.length < 2 || !firstName.value.match(regexName)) {
     firstNameParent.setAttribute("data-error-visible", true);
@@ -131,6 +129,7 @@ function validate(event) {
 
   // confirmation message
   confirmSuccess.style.display = "flex";
+
   firstName.value = "";
   lastName.value = "";
   email.value = "";
@@ -142,4 +141,9 @@ function validate(event) {
   });
 
   return false;
+}
+
+function closeMessageSuccess() {
+  confirmSuccess.style.display = "none";
+  closeModal();
 }
