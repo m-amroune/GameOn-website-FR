@@ -65,6 +65,7 @@ closeSuccess.forEach((btn) =>
 // Function validation inputs form
 
 function validate(event) {
+  event.preventDefault();
   let isFormValid = true;
   if (firstName.value.length < 2 || !firstName.value.match(regexName)) {
     firstNameParent.setAttribute("data-error-visible", true);
@@ -125,24 +126,22 @@ function validate(event) {
 
   if (!isFormValid) {
     return false;
+  } else {
+    closeModal();
+    // confirmation message
+    confirmSuccess.style.display = "flex";
+
+    firstName.value = "";
+    lastName.value = "";
+    email.value = "";
+    birthdate.value = "";
+    quantity.value = "";
+
+    city.forEach((event) => {
+      event.checked = false;
+    });
   }
-
-  // confirmation message
-  confirmSuccess.style.display = "flex";
-
-  firstName.value = "";
-  lastName.value = "";
-  email.value = "";
-  birthdate.value = "";
-  quantity.value = "";
-
-  city.forEach((event) => {
-    event.checked = false;
-  });
-
-  return false;
 }
-
 function closeMessageSuccess() {
   confirmSuccess.style.display = "none";
   closeModal();
