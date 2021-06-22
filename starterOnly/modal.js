@@ -11,8 +11,6 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-<<<<<<< HEAD
-=======
 const closeBtn = document.querySelectorAll(".close");
 
 // FORM Elements
@@ -41,25 +39,18 @@ const regexName = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
 const regexEmail = /^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i;
 const regexBirthdate =
   /^(19|20)\d{2}[-](0?[1-9]|1[012])[-](0[1-9]|[12]\d|3[01])$/;
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-<<<<<<< HEAD
-=======
 // Close modal event
 closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
 
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
 }
 
-<<<<<<< HEAD
-
-=======
 // Close modal form
 function closeModal() {
   modalbg.style.display = "none";
@@ -155,4 +146,3 @@ function closeMessageSuccess() {
   confirmSuccess.style.display = "none";
   closeModal();
 }
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a

@@ -35,17 +35,10 @@ img {
   margin: 3.5%;
 }
 .header-logo {
-<<<<<<< HEAD
-    float: left;
-}
-.main-navbar {
-    float: right;
-=======
   float: left;
 }
 .main-navbar {
   float: right;
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
 }
 .topnav a {
   float: left;
@@ -76,13 +69,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-<<<<<<< HEAD
-  .topnav a {display: none;}
-=======
   .topnav a {
     display: none;
   }
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
   .topnav a.icon {
     float: right;
     display: block;
@@ -90,13 +79,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-<<<<<<< HEAD
-  .topnav.responsive {position: relative;}
-=======
   .topnav.responsive {
     position: relative;
   }
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -109,27 +94,16 @@ img {
   }
 }
 
-<<<<<<< HEAD
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-=======
 @media screen and (max-width: 540px) {
   .topnav a {
     display: none;
   }
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
   .topnav a.icon {
     float: right;
     display: block;
     margin-top: -15px;
   }
-<<<<<<< HEAD
-} 
-=======
 }
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
 
 main {
   font-size: 130%;
@@ -141,11 +115,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
 }
 
 .modal-btn {
@@ -202,11 +171,6 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
-<<<<<<< HEAD
-.content {
-  margin: 5% auto;
-  width: 100%;
-=======
 .confirm-success {
   display: none;
   position: fixed;
@@ -229,7 +193,6 @@ main {
 .content {
   margin: 5% auto;
   width: 70%;
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
   max-width: 500px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
@@ -241,8 +204,6 @@ main {
   padding-top: 10px;
 }
 
-<<<<<<< HEAD
-=======
 button.close-message-confirmation {
   background: #fe142f;
   color: white;
@@ -258,7 +219,6 @@ button.close-message-confirmation {
   cursor: pointer;
 }
 
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
@@ -286,11 +246,7 @@ input {
 }
 .formData[data-error]::after {
   content: attr(data-error);
-<<<<<<< HEAD
-  font-size: 0.4em;
-=======
   font-size: 0.5em;
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
   color: #e54858;
   display: block;
   margin-top: 7px;
@@ -306,21 +262,12 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-<<<<<<< HEAD
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
-=======
 
 input[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
   color: red;
 }
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -543,8 +490,6 @@ input[data-error]::after {
   margin: 0;
   margin-top: 59px;
 }
-<<<<<<< HEAD
-=======
 
 /* ADD display none for div confirm-form   */
 
@@ -552,7 +497,6 @@ input[data-error]::after {
   display: none;
 }
 
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
 .hero-img {
   grid-column: span 8;
 }
@@ -625,7 +569,3 @@ footer {
     opacity: 1;
   }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 545c8098a43aa47ddfe56a54fdfdf0eef860c83a
