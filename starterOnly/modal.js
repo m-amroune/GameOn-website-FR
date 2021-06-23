@@ -11,7 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeBtn = document.querySelectorAll(".close");
+const closeBtn = document.querySelectorAll(".close"); // close modal form
 
 // FORM Elements
 const firstName = document.getElementById("first");
@@ -21,8 +21,8 @@ const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const city = document.querySelectorAll("input[type=radio]");
 const termOfUse = document.getElementById("checkbox1");
-const confirmSuccess = document.querySelector(".confirm-success");
-const closeSuccess = document.querySelectorAll(".close-message-confirmation");
+const confirmSuccess = document.querySelector(".confirm-success"); // modal message confirmation
+const closeSuccess = document.querySelectorAll(".close-message-confirmation"); // Close modal message confirmation for user
 
 // Parents Elements for errors
 
@@ -35,7 +35,7 @@ const cityParent = city[0].parentNode;
 const termOfUseParent = termOfUse.parentNode;
 
 // REGEX
-const regexName = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
+const regexName = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/; // FirstName and LastName
 const regexEmail = /^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i;
 const regexBirthdate =
   /^(19|20)\d{2}[-](0?[1-9]|1[012])[-](0[1-9]|[12]\d|3[01])$/;
@@ -68,10 +68,10 @@ function validate(event) {
   event.preventDefault();
   let isFormValid = true;
   if (firstName.value.length < 2 || !firstName.value.match(regexName)) {
-    firstNameParent.setAttribute("data-error-visible", true);
+    firstNameParent.setAttribute("data-error-visible", true); // set error message if validation is false
     isFormValid = false;
   } else {
-    firstNameParent.removeAttribute("data-error-visible");
+    firstNameParent.removeAttribute("data-error-visible"); // remove error message if validation is true
   }
 
   if (lastName.value.length < 2 || !lastName.value.match(regexName)) {
@@ -127,21 +127,23 @@ function validate(event) {
   if (!isFormValid) {
     return false;
   } else {
+    // close modal when the form is correctly completed
     closeModal();
-    // confirmation message
+    // Confirmation message
     confirmSuccess.style.display = "flex";
-
+    // Clear all of the fields (form validated)
     firstName.value = "";
     lastName.value = "";
     email.value = "";
     birthdate.value = "";
     quantity.value = "";
-
+    // all of the radio buttons unchecked
     city.forEach((event) => {
       event.checked = false;
     });
   }
 }
+// Close message confirmation
 function closeMessageSuccess() {
   confirmSuccess.style.display = "none";
   closeModal();
