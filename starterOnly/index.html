@@ -70,7 +70,7 @@
             <!-- LAST NAME -->
             <div class="formData" data-error="Veuillez saisir 2 caractères ou plus">
               <label for="last">Nom</label><br>
-              <input class="text-control" type="text" id="last" name="last" max="20" /><br>
+              <input class="text-control" type="text" id="last" name="last" maxlength="20" /><br>
             </div>
             <!-- EMAIL -->
             <div class="formData" data-error="Veuillez saisir une adresse email valide">
@@ -133,9 +133,8 @@
               </label>
               <br>
             </div>
-          </form>
-          <!-- event onclick when the user clicked on the button -->
-          <input class="btn-submit" id="btn-submit" type="button" onclick="validate(event)" value=" C'est parti" />
+            <!-- event onclick when the user clicked on the button -->
+            <input class="btn-submit" id="btn-submit" type="button" onclick="validate(event)" value=" C'est parti" />
           </form>
         </div>
       </div>
